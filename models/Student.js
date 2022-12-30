@@ -25,7 +25,13 @@ class Student {
    * Method menerima parameter data yang akan diinsert.
    * Method mengembalikan data student yang baru diinsert.
    */
-  static create() {
+  static create(student) {
+    return new Promise((resolve, reject) => {
+      const sql = "INSERT INTO students (nama, nim, email, jurusan) VALUES ?";
+      db.query(sql, student, (err, results) => {
+        resolve(results);
+      });
+    });
     // code here
   }
 }

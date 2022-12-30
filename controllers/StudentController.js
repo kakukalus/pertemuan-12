@@ -22,10 +22,11 @@ class StudentController {
      * Mengembalikan response dalam bentuk json.
      */
     // code here
+    const students = await Student.create(['alfin', '0110221008', 'kakukalusrpl@gmail.com', 'Tehnik Informatika']);
 
     const data = {
       message: "Menambahkan data student",
-      data: [],
+      data: students,
     };
 
     res.json(data);
